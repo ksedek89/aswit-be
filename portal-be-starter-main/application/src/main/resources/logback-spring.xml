@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <configuration>
+    <include resource="org/springframework/boot/logging/logback/defaults.xml"/>
 
     <if condition='isDefined("LOGSTASH_URL")'>
         <then>
@@ -20,7 +21,17 @@
                             <pattern>
                                 {
                                 "appName": "${APP_NAME}",
-                                "appVersion": "${APP_VERSION}"
+                                "appVersion": "${APP_VERSION}",
+                                "timestamp": "@timestamp",
+                                "severity": "%level",
+                                "service": "${springAppName:-}",
+                                "trace": "%X{traceId:-}",
+                                "span": "%X{spanId:-}",
+                                "baggage": "%X{key:-}",
+                                "pid": "${PID:-}",
+                                "thread": "%thread",
+                                "class": "%logger{40}",
+                                "rest": "%message"
                                 }
                             </pattern>
                         </pattern>
@@ -47,7 +58,8 @@
 
     <appender name="STDOUT"  class="ch.qos.logback.core.ConsoleAppender">
         <encoder>
-            <pattern>%d{dd-MM-yyyy HH:mm:ss.SSS} %magenta([%thread]) %highlight(%-5level) %logger{36}.%M - %msg%n</pattern>
+            <pattern>${CONSOLE_LOG_PATTERN}</pattern>
+            <charset>utf8</charset>
         </encoder>
     </appender>
 
