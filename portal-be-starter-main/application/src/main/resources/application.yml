@@ -37,6 +37,20 @@ spring:
   cache:
     jcache:
       config: classpath:ehcache.xml
+  sleuth:
+    sampler:
+      probability: ${ZIPKIN_SAMPLER_PROBABILITY:1}
+    feign:
+      enabled: true
+      processor:
+        enabled: true
+  zipkin:
+    enabled: ${ZIPKIN_ENABLED:false}
+    baseUrl: ${ZIPKIN_URL:http://0.0.0.0}
+    service:
+      name: STARTER
+  aop:
+    proxy-target-class: false
 pru:
   servlet:
     pub-api-path: /api

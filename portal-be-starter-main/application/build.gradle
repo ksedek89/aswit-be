@@ -42,6 +42,9 @@ dependencies {
     implementation("ma.glasnost.orika:orika-core:$orikaVersion")
     implementation("org.springframework.boot:spring-boot-starter-actuator")
 
+    implementation("org.springframework.cloud:spring-cloud-starter-sleuth:${springCloudVersion}")
+    implementation("org.springframework.cloud:spring-cloud-sleuth-zipkin:${springCloudVersion}")
+
     testImplementation("com.h2database:h2:${h2Version}")
     testImplementation("org.codehaus.janino:janino:${janinoVersion}")
 
