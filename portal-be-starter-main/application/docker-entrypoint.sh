@@ -2,4 +2,5 @@
 set -e
 set -x
 
+java -version
 exec "$@"
