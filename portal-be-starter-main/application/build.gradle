@@ -36,8 +36,9 @@ dependencies {
     implementation("org.hibernate.validator:hibernate-validator:$hibernateValidatorVersion")
     implementation("io.springfox:springfox-swagger2:${rootProject.ext.springfoxSwagger}")
     implementation("io.springfox:springfox-swagger-ui:${rootProject.ext.springfoxSwagger}")
+    implementation("org.apache.commons:commons-lang3:$versionCommonsLang")
 
-    runtime("org.springframework.boot:spring-boot-devtools:$springBootVersion")
+    runtime("org.springframework.boot:spring-boot-devtools")
 
     implementation("ma.glasnost.orika:orika-core:$orikaVersion")
     implementation("org.springframework.boot:spring-boot-starter-actuator")
@@ -48,11 +49,12 @@ dependencies {
     testImplementation("com.h2database:h2:${h2Version}")
     testImplementation("org.codehaus.janino:janino:${janinoVersion}")
 
-    testImplementation("org.springframework.boot:spring-boot-starter-test:${springBootVersion}")
+    testImplementation("org.springframework.boot:spring-boot-starter-test")
 
     testImplementation("org.codehaus.groovy:groovy-all:${rootProject.ext.groovyAllVersion}")
-    testImplementation("org.spockframework:spock-core:${rootProject.ext.spockVersion}")
-    testImplementation("org.spockframework:spock-spring:${rootProject.ext.spockVersion}")
+    testImplementation platform("org.spockframework:spock-bom:${rootProject.ext.spockVersion}")
+    testImplementation("org.spockframework:spock-core")
+    testImplementation("org.spockframework:spock-spring")
 
     testImplementation("org.junit.jupiter:junit-jupiter-engine:${junitJupiterVersion}")
     testImplementation("org.springframework.security:spring-security-test:${springSecurityVersion}")

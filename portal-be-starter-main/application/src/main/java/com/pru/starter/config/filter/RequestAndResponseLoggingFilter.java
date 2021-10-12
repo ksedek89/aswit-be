@@ -2,7 +2,7 @@ package com.pru.starter.config.filter;
 
 import lombok.extern.slf4j.Slf4j;
 import lombok.val;
-import net.logstash.logback.encoder.org.apache.commons.lang.StringUtils;
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.web.filter.OncePerRequestFilter;
@@ -18,7 +18,6 @@ import java.nio.charset.Charset;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
-import java.util.stream.Stream;
 
 @Slf4j
 public class RequestAndResponseLoggingFilter extends OncePerRequestFilter {
@@ -67,10 +66,10 @@ public class RequestAndResponseLoggingFilter extends OncePerRequestFilter {
 
     private static void logRequestHeader(ContentCachingRequestWrapper request, String prefix) {
         log.info("{} {}", prefix, getRequestedPath(request));
-        if (log.isDebugEnabled()) {
+        if (log.isTraceEnabled()) {
             Collections.list(request.getHeaderNames()).forEach(headerName ->
                 Collections.list(request.getHeaders(headerName)).forEach(headerValue ->
-                    log.info("{} {}: {}", prefix, headerName, headerValue))
+                    log.trace("{} {}: {}", prefix, headerName, headerValue))
             );
         }
     }
@@ -96,10 +95,10 @@ public class RequestAndResponseLoggingFilter extends OncePerRequestFilter {
     private static void logResponse(ContentCachingResponseWrapper response, String prefix) {
         val status = response.getStatus();
         log.info("{} {} {}", prefix, status, HttpStatus.valueOf(status).getReasonPhrase());
-        if (log.isDebugEnabled()) {
+        if (log.isTraceEnabled()) {
             response.getHeaderNames().forEach(headerName ->
                 response.getHeaders(headerName)
-                    .forEach(headerValue -> log.info("{} {}: {}", prefix, headerName, headerValue))
+                    .forEach(headerValue -> log.trace("{} {}: {}", prefix, headerName, headerValue))
             );
         }
         if (log.isDebugEnabled()) {
@@ -116,12 +115,12 @@ public class RequestAndResponseLoggingFilter extends OncePerRequestFilter {
         if (visible) {
             try {
                 val contentString = new String(content, Charset.forName(contentEncoding));
-                Stream.of(contentString.split("(\r\n|\r|\n)")).forEach(line -> log.info("{} {}", prefix, line));
+                log.debug("{} {}", prefix, contentString.replaceAll("[\r\n]+\\s*", ""));
             } catch (Exception e) {
-                log.info("{} [{} bytes content]", prefix, content.length);
+                log.debug("{} [{} bytes content]", prefix, content.length);
             }
         } else {
-            log.info("{} [{} bytes content]", prefix, content.length);
+            log.debug("{} [{} bytes content]", prefix, content.length);
         }
     }
 
