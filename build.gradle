@@ -98,6 +98,7 @@ buildscript {
         versionGuava = '27.1-jre'
         versionCommonsIo = '2.6'
         versionCommonsText = '1.6'
+        versionCommonsLang = '3.8.1'
         orikaVersion = "1.5.4"
         versionDockerPlugin = '3.6.1'
         localImagePrefix = 'starter'
