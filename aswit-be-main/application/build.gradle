@@ -24,7 +24,6 @@ dependencies {
     implementation("org.springframework.boot:spring-boot-starter-web")
     implementation("org.springframework.boot:spring-boot-starter-logging")
 
-    implementation("org.springframework.boot:spring-boot-starter-cache")
     implementation("org.ehcache:ehcache:${ehCacheVersion}")
     implementation("javax.cache:cache-api:${cacheApiVersion}")
     implementation("javax.xml.bind:jaxb-api:${versionJaxb}")
