@@ -1,10 +1,10 @@
-rootProject.name = 'portal-be-starter'
+rootProject.name = 'aswit-be'
 
-include ':portal-be-starter-main',
-        ':portal-be-starter-main:application',
-        ':portal-be-starter-main:model',
-        ':portal-be-starter-main:util',
-        ':portal-be-starter-main:business-api',
-        ':portal-be-starter-main:business-impl',
-        ':portal-be-starter-main:rest-controller',
-        ':portal-be-starter-main:security'
+include ':aswit-be-main',
+        ':aswit-be-main:application',
+        ':aswit-be-main:model',
+        ':aswit-be-main:util',
+        ':aswit-be-main:business-api',
+        ':aswit-be-main:business-impl',
+        ':aswit-be-main:rest-controller',
+        ':aswit-be-main:security'

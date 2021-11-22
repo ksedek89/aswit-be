@@ -15,7 +15,7 @@ allprojects {
     }
 
     version = rootProject.file('version').text.trim()
-    group = 'com.pru.starter'
+    group = 'com.pru.aswit'
 
     buildscript {
         repositories {
@@ -101,6 +101,6 @@ buildscript {
         versionCommonsLang = '3.8.1'
         orikaVersion = "1.5.4"
         versionDockerPlugin = '3.6.1'
-        localImagePrefix = 'starter'
+        localImagePrefix = 'aswit'
     }
 }
