@@ -1,3 +1,2 @@
 dependencies {
-    implementation("com.pru.cas.sso:cas-library:${pruSsoLibVersion}")
 }

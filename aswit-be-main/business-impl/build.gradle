@@ -2,8 +2,6 @@ dependencies {
     implementation project(':aswit-be-main:business-api')
     implementation project(':aswit-be-main:model')
 
-    implementation("com.pru.cas.sso:cas-library:${pruSsoLibVersion}")
-    implementation("org.springframework.security:spring-security-core:${springSecurityVersion}")
 
     implementation("ma.glasnost.orika:orika-core:$orikaVersion")
 

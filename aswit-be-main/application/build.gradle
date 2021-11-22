@@ -24,7 +24,6 @@ dependencies {
     implementation("org.springframework.boot:spring-boot-starter-web")
     implementation("org.springframework.boot:spring-boot-starter-logging")
 
-    implementation("com.pru.ap.translations:ap-translations-library:${pruTranslationsLibVersion}")
     implementation("org.springframework.boot:spring-boot-starter-cache")
     implementation("org.ehcache:ehcache:${ehCacheVersion}")
     implementation("javax.cache:cache-api:${cacheApiVersion}")
@@ -57,7 +56,6 @@ dependencies {
     testImplementation("org.spockframework:spock-spring")
 
     testImplementation("org.junit.jupiter:junit-jupiter-engine:${junitJupiterVersion}")
-    testImplementation("org.springframework.security:spring-security-test:${springSecurityVersion}")
 }
 
 testClasses.dependsOn compileGroovy
