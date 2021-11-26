@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import pl.aswit.rest.dto.UserDto;
+import pl.aswit.rest.dto.user.UserDto;
 
 @RestController
 @RequestMapping( value =  "${app.public.path}/login")
@@ -15,7 +15,7 @@ import pl.aswit.rest.dto.UserDto;
 public class LoginController {
 
     @GetMapping("/get-user")
-    public UserDto test(){
+    public UserDto getUsers(){
         return UserDto.builder().login("ksedek").password("haslo").build();
     }
 

@@ -1,17 +1,16 @@
-package pl.aswit.rest.dto;
+package pl.aswit.rest.dto.podcast;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import lombok.RequiredArgsConstructor;
+
+import java.util.List;
 
 @Builder
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-
-public class UserDto {
-    private String login;
-    private String password;
+public class PodcastsDto {
+    private List<PodcastDto> podcastList;
 }

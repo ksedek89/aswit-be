@@ -6,7 +6,7 @@ dependencies {
 
     implementation("org.springframework.boot:spring-boot-starter-web:${springBootVersion}")
     implementation("commons-io:commons-io:$apacheCommonsVersion")
-
+    compile "org.springframework.boot:spring-boot-starter-webflux:${springBootVersion}"
     implementation("ma.glasnost.orika:orika-core:$orikaVersion")
 
     testCompile("org.springframework.boot:spring-boot-starter-test:${springBootVersion}")
