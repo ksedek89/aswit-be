@@ -73,6 +73,8 @@ buildscript {
         junitJupiterVersion = "5.4.1"
         springVersion = "5.1.6.RELEASE"
         springBootVersion = "2.1.4.RELEASE"
+        springBootData = "2.6.1"
+        springBootMail = "2.6.1"
         springCloudVersion = '2.1.1.RELEASE'
         feignHttpClientVersion = '10.1.0'
         springSecurityVersion = '5.1.5.RELEASE'
