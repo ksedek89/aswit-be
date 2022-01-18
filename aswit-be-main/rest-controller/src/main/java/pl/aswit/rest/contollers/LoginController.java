@@ -32,5 +32,11 @@ public class LoginController {
         return ResponseEntity.ok(genericResponseDto);
     }
 
+    @PostMapping("/sendMail")
+    public ResponseEntity<GenericResponseDto> sendMail() throws Exception {
+       loginService.sendMail();
+        return ResponseEntity.ok().build();
+    }
+
 
 }

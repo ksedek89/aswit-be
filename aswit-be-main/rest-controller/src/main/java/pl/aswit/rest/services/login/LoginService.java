@@ -4,6 +4,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.mail.SimpleMailMessage;
 import org.springframework.mail.javamail.JavaMailSender;
+import org.springframework.mail.javamail.MimeMessageHelper;
 import org.springframework.stereotype.Service;
 import pl.aswit.model.entity.ActivationLink;
 import pl.aswit.model.entity.User;
@@ -14,7 +15,10 @@ import pl.aswit.rest.dto.enums.StatusE;
 import pl.aswit.rest.dto.user.generic.GenericResponseDto;
 import pl.aswit.rest.dto.user.register.RegisterRequestDto;
 
+import javax.mail.internet.MimeMessage;
 import javax.transaction.Transactional;
+import java.io.File;
+import java.io.FileInputStream;
 import java.util.Base64;
 import java.util.UUID;
 
@@ -75,6 +79,24 @@ public class LoginService {
             log.error(e.getMessage(), e);
         }
         return GenericResponseDto .builder().status(StatusE.NOT_OK).message("Wystąpił błąd. Proszę spróbować później").build();
+    }
+
+
+    public void sendMail() throws Exception {
+        FileInputStream fis = new FileInputStream(new File("/home/ksedek/Downloads/karta_pracy_pierwszy_mail.html"));
+        byte[] bytes = fis.readAllBytes();
+
+        MimeMessage mimeMessage = javaMailSender.createMimeMessage();
+
+        MimeMessageHelper helper;
+        helper = new MimeMessageHelper(mimeMessage, true);
+        helper.setFrom("rejestracja@aswit.pl");
+        helper.setSubject("subject");
+        helper.setTo("ksedek89@gmail.com");
+        helper.setText(new String(bytes), true);
+
+        javaMailSender.send(mimeMessage);
+
     }
 
     private String getLinkUuid(){
