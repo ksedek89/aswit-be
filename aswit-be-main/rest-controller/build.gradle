@@ -16,4 +16,13 @@ dependencies {
     testCompile("org.codehaus.groovy:groovy-all:${rootProject.ext.groovyAllVersion}")
     testCompile("org.spockframework:spock-core:${rootProject.ext.spockVersion}")
     testCompile("org.spockframework:spock-spring:${rootProject.ext.spockVersion}")
+
+    implementation group: 'org.keycloak', name: 'keycloak-spring-boot-starter', version: '17.0.0'
+    implementation group: 'org.springframework.boot', name: 'spring-boot-starter-security', version: '2.6.4'
+    implementation group: 'org.keycloak', name: 'keycloak-admin-client', version: '17.0.0'
+    compile("io.github.openfeign:feign-okhttp:10.1.0")
+    compile("io.github.openfeign:feign-httpclient:10.1.0")
+    compile("org.springframework.cloud:spring-cloud-starter-openfeign:2.1.1.RELEASE")
+
+
 }

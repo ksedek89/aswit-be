@@ -25,3 +25,21 @@ spring:
     username: aswit
     password: hHGn6nveOwCn3w2uUKyG
     driver-class-name: org.mariadb.jdbc.Driver
+keycloak:
+  realm: Aswit
+  auth-server-url: http://217.182.75.190:8081/auth
+  ssl-required: none
+  resource: aswit-be
+  credentials:
+    secret: 5eDiRLQiYlSyhvQ1P70VaWmt2pajnxZ4
+  bearer-only: true
+  use-resource-role-mappings: true
+logging:
+  level:
+    pl:
+      aswit:
+        rest:
+          client:
+            KeycloakFeignClient: DEBUG
+#    root: TRACE
+

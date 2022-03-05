@@ -1,4 +1,4 @@
-package pl.aswit.dto;
+package pl.aswit.rest.dto.podcast;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;

@@ -49,3 +49,10 @@ ALTER TABLE podcast_document ADD CONSTRAINT fk_podcast_document_podcast_id
 
 alter table podcast_document add column name varchar(200);
 alter table document add column name varchar(200);
+
+create table newsletter_email(
+    id int auto_increment primary key,
+    email varchar(200) ,
+    active int,
+    create_date datetime
+);
